@@ -88,6 +88,9 @@ static sdp_data_t *access_proto_to_dataseq(sdp_record_t *rec, sdp_list_t *proto)
 				break;
 			// FIXME: more
 			}
+			
+			
+			
 		}
 		s = sdp_seq_alloc(dtds, values, pslen);
 		if (s) {
@@ -129,22 +132,10 @@ void sdp_add_keyboard()
 	uuid_t root_uuid, hidkb_uuid, l2cap_uuid, hidp_uuid;
 	sdp_profile_desc_t profile[1];
 	sdp_list_t *aproto, *proto[3];
-	sdp_data_t *channel, *lang_lst, *lang_lst2, *hid_spec_lst, *hid_spec_lst2;
-	int i;
-	uint8_t dtd = SDP_UINT16;
-	uint8_t dtd2 = SDP_UINT8;
-	uint8_t dtd_data = SDP_TEXT_STR8;
-	sdp_session_t *session;
-	void *dtds[2];
-	void *values[2];
-	void *dtds2[2];
-	void *values2[2];
-	int leng[2];
-	uint8_t hid_spec_type = 0x22;
-	uint16_t hid_attr_lang[] = {0x409,0x100};
+
 	static const uint8_t ctrl = 0x11;
 	static const uint8_t intr = 0x13;
-	static const uint16_t hid_attr[] = {0x100,0x111,0x40,0x0d,0x01,0x01};
+	static const uint16_t hid_attr[] = {0x100,0x333,0x40,0x0d,0x01,0x01};
 	static const uint16_t hid_attr2[] = {0x0,0x01,0x100,0x1f40,0x01,0x01};
 
 	if (!sdp_session) {
